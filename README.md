@@ -1,2 +1,2 @@
 # todo-list
-Todo list for fucking aula
+Todo list for aula qualidade of software
