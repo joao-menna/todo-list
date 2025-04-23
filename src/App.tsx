@@ -27,7 +27,7 @@ function App() {
     if (!lastTodo.length) {
       id = 1;
     } else {
-      id = lastTodo[0].id;
+      id = lastTodo[0].id + 1;
     }
 
     const todo: Todo = {
@@ -70,15 +70,17 @@ function App() {
   };
 
   return (
-    <div className="flex flex-col gap-2 h-full items-center">
+    <div className="flex flex-col gap-2 h-full items-center text-slate-50">
       <div className="bg-slate-700 flex gap-2 container rounded-lg p-2">
         <input
-          className="bg-slate-600 outline-0 rounded-lg p-1"
+          className="bg-slate-600 outline-0 rounded-lg p-1 h-6"
           type="text"
           ref={nameRef}
+          maxLength={128}
         />
         <textarea
           className="bg-slate-600 outline-0 rounded-lg p-1 h-full"
+          maxLength={512}
           ref={descriptionRef}
         ></textarea>
         <button
@@ -88,10 +90,11 @@ function App() {
           Adicionar
         </button>
       </div>
-      <div className="container">
+      <div className="container flex flex-col gap-2">
         <AnimatePresence>
           {todos.map((todo) => (
             <SingleTodo
+              key={todo.id}
               onRemoveTodo={handleRemoveTodo}
               onMarkDone={handleMarkDone}
               todo={todo}
