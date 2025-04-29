@@ -9,6 +9,7 @@ interface Props {
 
 export function SingleTodo({ todo, onRemoveTodo, onMarkDone }: Props) {
   return (
+    // Elemento da lib de animação
     <motion.div
       className="flex items-center gap-2 text-black bg-slate-300 rounded-lg p-2"
       initial={{ scale: 1.1, opacity: 0 }}
